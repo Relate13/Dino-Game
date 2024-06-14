@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckpgn17deiscu"]
+
+[ext_resource type="Script" path="res://Dino.cs" id="1_nfpf7"]
+[ext_resource type="Texture2D" uid="uid://cyam3a8nrmdag" path="res://img/sprite.png" id="1_qqugq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiyw2"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1866, 2, 118, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ek80"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1984, 2, 118, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_161sa"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1338, 2, 88, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_addnb"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1426, 2, 88, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17fq5"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1690, 2, 88, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w5r4"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1514, 2, 88, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oqdf"]
+atlas = ExtResource("1_qqugq")
+region = Rect2(1602, 2, 88, 94)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ga7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiyw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ek80")
+}],
+"loop": true,
+"name": &"dino_dodge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_addnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161sa")
+}],
+"loop": true,
+"name": &"dino_idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17fq5")
+}],
+"loop": true,
+"name": &"dino_oops",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w5r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oqdf")
+}],
+"loop": true,
+"name": &"dino_run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6j152"]
+size = Vector2(40, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v65vl"]
+size = Vector2(40, 30)
+
+[node name="Dino" type="Area2D"]
+script = ExtResource("1_nfpf7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4ga7o")
+animation = &"dino_dodge"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 15)
+shape = SubResource("RectangleShape2D_6j152")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(20, -28)
+shape = SubResource("RectangleShape2D_v65vl")

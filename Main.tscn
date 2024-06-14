@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmrivr3y1wpxv"]
+
+[ext_resource type="PackedScene" uid="uid://dodnffvo2y4vp" path="res://TerrainBlock.tscn" id="1_21vgv"]
+[ext_resource type="Script" path="res://Main.cs" id="1_bs5id"]
+[ext_resource type="PackedScene" uid="uid://ckpgn17deiscu" path="res://Dino.tscn" id="1_dly22"]
+[ext_resource type="Script" path="res://TerrainSpawner.cs" id="1_u4p6e"]
+[ext_resource type="PackedScene" uid="uid://cnye7hn7tva6a" path="res://HUD.tscn" id="2_putab"]
+[ext_resource type="PackedScene" uid="uid://n732i7xpcgu6" path="res://CactusA.tscn" id="3_xh66x"]
+[ext_resource type="PackedScene" uid="uid://pjkdqvanjr2h" path="res://Cloud.tscn" id="4_uxx2x"]
+[ext_resource type="PackedScene" uid="uid://dtsy6gprfuw5r" path="res://CactusB.tscn" id="5_vg61m"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_bs5id")
+
+[node name="HUD" parent="." instance=ExtResource("2_putab")]
+
+[node name="CactusTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CloudTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="CactusSpawnCenter" type="Marker2D" parent="."]
+position = Vector2(1192, 295)
+
+[node name="TerrainSpawner" type="Node2D" parent="." node_paths=PackedStringArray("CactusSpawnCenter", "CactusTimer", "CloudTimer")]
+script = ExtResource("1_u4p6e")
+Speed = 500
+CloudSpeed = 300
+TerrainBlockScene = ExtResource("1_21vgv")
+CloudScene = ExtResource("4_uxx2x")
+CactusScenes = Array[PackedScene]([ExtResource("3_xh66x"), ExtResource("5_vg61m")])
+CactusSpawnCenter = NodePath("../CactusSpawnCenter")
+CactusTimer = NodePath("../CactusTimer")
+CloudTimer = NodePath("../CloudTimer")
+CactusWaitTimerInterval = Vector2(0.5, 2)
+
+[node name="TerrainBlock0" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(200, 288)
+
+[node name="TerrainBlock1" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(400, 288)
+
+[node name="TerrainBlock2" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(600, 288)
+
+[node name="TerrainBlock3" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(792, 288)
+
+[node name="TerrainBlock4" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(992, 288)
+
+[node name="TerrainBlock5" parent="TerrainSpawner" instance=ExtResource("1_21vgv")]
+position = Vector2(1192, 288)
+
+[node name="Dino" parent="." instance=ExtResource("1_dly22")]
+position = Vector2(136, 248)
+MaxJumpVelocity = 1000
+DinoGravity = 20

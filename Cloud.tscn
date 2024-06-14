@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pjkdqvanjr2h"]
+
+[ext_resource type="Script" path="res://Cloud.cs" id="1_kauu2"]
+[ext_resource type="Texture2D" uid="uid://cyam3a8nrmdag" path="res://img/sprite.png" id="1_qptoo"]
+
+[node name="Cloud" type="Node2D"]
+script = ExtResource("1_kauu2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-64, -16)
+scale = Vector2(1.289, 1)
+texture = ExtResource("1_qptoo")
+region_enabled = true
+region_rect = Rect2(166, 0, 92, 32)

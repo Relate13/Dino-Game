@@ -1,0 +1,105 @@
+[gd_scene load_steps=16 format=3 uid="uid://dodnffvo2y4vp"]
+
+[ext_resource type="Script" path="res://TerrainBlock.cs" id="1_l5bxk"]
+[ext_resource type="Texture2D" uid="uid://bhius8lhhq1p" path="res://img/terrains.png" id="2_rxsac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttqp4"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 0, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a10l"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 26, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ildr8"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 52, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0l6k"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 78, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twdtl"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 104, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyau3"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 130, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsntf"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 156, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqpja"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 182, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e20pd"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 208, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdb6o"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 234, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3peo4"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 260, 200, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oudxa"]
+atlas = ExtResource("2_rxsac")
+region = Rect2(0, 286, 200, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02sq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttqp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a10l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ildr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0l6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twdtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyau3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsntf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqpja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e20pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdb6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3peo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oudxa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TerrainBlock" type="Node2D"]
+script = ExtResource("1_l5bxk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-100, 0)
+sprite_frames = SubResource("SpriteFrames_02sq1")
+frame = 8
